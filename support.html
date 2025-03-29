@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《电子木鱼》 - 技术支持</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 28px;
+        }
+        h2 {
+            color: #3498db;
+            font-size: 22px;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input, textarea, select {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .faq-item {
+            margin-bottom: 15px;
+        }
+        .faq-question {
+            font-weight: bold;
+            color: #2c3e50;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 4px;
+            margin-top: 5px;
+            display: none;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #f0f0f0;
+            }
+            .section {
+                background: #1e1e1e;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            }
+            h1, h2, .faq-question {
+                color: #f0f0f0;
+            }
+            input, textarea, select {
+                background: #2d2d2d;
+                border-color: #444;
+                color: #f0f0f0;
+            }
+            .faq-answer {
+                background: #2d2d2d;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>电子木鱼 技术支持</h1>
+        <p>我们随时为您解决使用中的问题</p>
+    </header>
+
+    <div class="section">
+        <h2>常见问题</h2>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                如何恢复购买的主题？
+                <span>▼</span>
+            </div>
+            <div class="faq-answer">
+                请进入应用设置 → 点击"恢复购买"按钮。如果问题仍未解决，请通过下方表单联系我们。
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                为什么敲击没有声音？
+                <span>▼</span>
+            </div>
+            <div class="faq-answer">
+                请检查：1) 设备是否静音 2) 设置中音效是否开启 3) 尝试重启应用。如仍无效可能是音频文件损坏，建议重装应用。
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                每日计数会自动重置吗？
+                <span>▼</span>
+            </div>
+            <div class="faq-answer">
+                是的，应用会在北京时间每日0点自动重置"今日功德"计数，但会保留总计数。
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>联系我们</h2>
+        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input type="hidden" name="_language" value="zh">
+            
+            <div>
+                <label for="email">您的邮箱：</label>
+                <input type="email" id="email" name="email" required placeholder="请填写有效邮箱地址">
+            </div>
+            
+            <div>
+                <label for="issue-type">问题类型：</label>
+                <select id="issue-type" name="issue-type" required>
+                    <option value="">请选择...</option>
+                    <option value="payment">支付问题</option>
+                    <option value="function">功能异常</option>
+                    <option value="suggestion">功能建议</option>
+                    <option value="other">其他问题</option>
+                </select>
+            </div>
+            
+            <div>
+                <label for="message">问题描述：</label>
+                <textarea id="message" name="message" rows="5" required placeholder="请详细描述您遇到的问题，包括操作步骤和现象"></textarea>
+            </div>
+            
+            <div>
+                <label for="screenshot">附件（可选）：</label>
+                <input type="file" id="screenshot" name="screenshot" accept="image/*">
+                <small>可上传问题截图（最多3MB）</small>
+            </div>
+            
+            <button type="submit">提交问题</button>
+        </form>
+        
+        <p style="margin-top: 20px;">
+            或直接发送邮件至：<a href="mailto:support@muyu.app">support@muyu.app</a><br>
+            我们将在24小时内回复您的问题。
+        </p>
+    </div>
+
+    <footer>
+        <p>
+            <a href="user-agreement.html">用户协议</a> | 
+            <a href="privacy-policy.html">隐私政策</a>
+        </p>
+        <p>© 2025 电子木鱼 版权所有</p>
+    </footer>
+
+    <script>
+        function toggleAnswer(element) {
+            const answer = element.nextElementSibling;
+            const isShowing = answer.style.display === 'block';
+            
+            answer.style.display = isShowing ? 'none' : 'block';
+            element.querySelector('span').textContent = isShowing ? '▼' : '▲';
+        }
+        
+        // 自动展开第一个FAQ
+        document.querySelector('.faq-question').click();
+        
+        // 暗黑模式切换
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
+</body>
+</html>
